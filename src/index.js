@@ -4,20 +4,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 
-//import rootReducer from './reducers/usersReducers';
-
 // { Provider } permite que todos os elementos dentro do mesmo "nested", tenham acesso à store.
 import { Provider } from 'react-redux';
-
-// Permite criar uma { store }
-import { createStore } from 'redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-//const store = createStore(rootReducer);
 
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import rootReducer from './reducers';
 
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
-    {/*
+
   <Provider store={ store }>
     <BrowserRouter>
       <Switch>
@@ -26,5 +24,4 @@ ReactDOM.render(
     </BrowserRouter>
   </Provider>,
     document.getElementById('root')
-    */}
   );

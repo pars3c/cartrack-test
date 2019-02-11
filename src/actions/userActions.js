@@ -9,9 +9,9 @@ export const fetchUsersBegin = () => ({
   type: FETCH_USERS_BEGIN
 });
 
-export const fetchUsersSuccess = users => ({
+export const fetchUsersSuccess = data => ({
   type: FETCH_USERS_SUCCESS,
-  payload: users,
+  payload: data,
 });
 
 export const fetchUsersFailure = error => ({
@@ -40,6 +40,7 @@ return dispatch => {
     .then(res => res.json())
     .then(json => {
         dispatch(fetchUsersSuccess(json));
+        console.log('worked', json)
         return json;
     })
     .catch(error => {

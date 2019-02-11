@@ -10,11 +10,10 @@ import {
     error: null
   };
   
-export default function userReducer(state = initialState, payload) {
+function users(state = initialState, payload) {
   switch(payload.type) {
     case FETCH_USERS_BEGIN:
-      // Mark the state as "loading" so we can show a spinner or something
-      // Also, reset any errors. We're starting fresh.
+
       return {
         ...state,
         loading: true,
@@ -22,8 +21,6 @@ export default function userReducer(state = initialState, payload) {
       };
 
     case FETCH_USERS_SUCCESS:
-      // All done: set loading "false".
-      // Also, replace the items with the ones from the server
       return {
         ...state,
         loading: false,
@@ -31,13 +28,6 @@ export default function userReducer(state = initialState, payload) {
       };
 
     case FETCH_USERS_FAILURE:
-      // The request failed. It's done. So set loading to "false".
-      // Save the error, so we can display it somewhere.
-      // Since it failed, we don't have items to display anymore, so set `items` empty.
-      //
-      // This is all up to you and your app though:
-      // maybe you want to keep the items around!
-      // Do whatever seems right for your use case.
       return {
         ...state,
         loading: false,
@@ -50,3 +40,5 @@ export default function userReducer(state = initialState, payload) {
       return state;
   }
 }
+
+export default users;

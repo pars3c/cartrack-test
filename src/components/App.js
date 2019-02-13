@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchUsers } from '../actions/userActions';
-
+import '../styles/styles.css';
 
 function searchingForName(name, username, email, website, phone) {
     return function(x) {
@@ -83,53 +83,63 @@ class App extends Component {
         
         return (
             <div>
-                <form>
-                    <label>
-                        Name:
-                        <input type="text" value={this.state.name} onChange={this.nameSearchHandler} />
-                    </label>
-
-                    <label>
-                        Username:
-                        <input type="text" value={this.state.username} onChange={this.usernameSearchHandler} />
-                    </label>
-
-                    <label>
-                        Email:
-                        <input type="text" value={this.state.email} onChange={this.emailSearchHandler} />
-                    </label>
-
-                    <label>
-                        Website:
-                        <input type="text" value={this.state.website} onChange={this.websiteSearchHandler} />
-                    </label>
-
-                    <label>
-                        Phone:
-                        <input type="text" value={this.state.phone} onChange={this.phoneSearchHandler} />
-                    </label>
-
-                    {
-                        this.props.users.filter(searchingForName(this.state.name, this.state.username,
-                        this.state.email, this.state.website, this.state.phone)).map(user => {
-                            return (
-                                <li key={user.id} className="list-group-item">
-                                    <div className="list-item">
-                                        <h3>{user.username}</h3>
-                                        <p>{user.name}</p>
-                                        <p>{user.email} {user.website} {user.phone}</p>
-                                    </div>
-                                    <div className="list-item right-button"
-                                    >
-                                    
-                                    </div>
-                                </li>
-                            )
-                        })
-                    }
+                <h1>Search for users</h1>
+                <div className="filter-menu">
+                    <form>
                     
-                </form>
+                        
+                            
+                            <label>
+                                Name:
+                                <input type="text" value={this.state.name} onChange={this.nameSearchHandler} placeholder="Name"/>
+                            </label>
 
+                            <label>
+                                Username:
+                                <input type="text" value={this.state.username} onChange={this.usernameSearchHandler} placeholder="Username"/>
+                            </label>
+
+                            <label>
+                                Email:
+                                <input type="text" value={this.state.email} onChange={this.emailSearchHandler} placeholder="Email"/>
+                            </label>
+
+                            <label>
+                                Website:
+                                <input type="text" value={this.state.website} onChange={this.websiteSearchHandler} placeholder="Website"/>
+                            </label>
+
+                            <label>
+                                Phone:
+                                <input type="text" value={this.state.phone} onChange={this.phoneSearchHandler} placeholder="Phone"/>
+                            </label>
+                        
+                        
+                    </form>
+                </div>
+                <div className="filtered-results">
+                        <ul>
+                        {
+                            this.props.users.filter(searchingForName(this.state.name, this.state.username,
+                            this.state.email, this.state.website, this.state.phone)).slice(0, 5).map(user => {
+                                return (
+                                    <li key={user.id} className="list-group-item">
+                                        <div className="list-item">
+                                            <h3>{user.username} </h3>
+                                            <p>{user.name} </p>
+                                            <hr></hr>
+                                            
+                                        </div>
+                                        <div className="list-item right-button"
+                                        >
+                                        
+                                        </div>
+                                    </li>
+                                )
+                            })
+                        }
+                        </ul>
+                    </div>
             </div>
         )
     }

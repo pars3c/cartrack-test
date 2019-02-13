@@ -1,0 +1,107 @@
+
+
+
+
+
+
+
+@media (min-width:1025px) {
+    body {
+        background: #28c16b;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    h1 {
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        color: #ffffff;
+        font-weight: 100;
+    }
+
+    .filter-menu {
+        float: left;
+        width: 50%;
+        height: 100vh;
+    }
+
+    .filter-menu label{
+        text-align: center;
+        display: block;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .filter-menu input{
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        width: 400px;
+        height: 40px;
+        padding: 0 20px;
+        border-radius: 5px;
+        margin: auto;
+        font-size: 1rem;
+        border: 1px solid #D0CFCE;
+        outline: none;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        background: #28c16b;
+    }
+
+    .filter-menu input::placeholder{
+        color:white;
+        font-family: 'Roboto', sans-serif;
+        
+    }
+    .filter-menu input:focus{
+        border: 2px solid #ffffff;
+        transition: 0.35s ease;
+        color: #ffffff;
+    }
+
+    .filter-menu input:focus::-webkit-input-placeholder {
+        transition: opacity 0.45s ease;
+        opacity: 0;
+    }
+
+    .filter-menu input:focus::-moz-placeholder {
+        transition: opacity 0.45s ease;
+        opacity: 0;
+    }
+
+    .filtered-results {
+        float:right;
+        width: 50%;
+        height: 100vh;
+    }
+
+    li.list-group-item  {
+        margin-top:10px;
+        color: #fffefe;
+        padding-right: 400px;
+    }
+
+    li.list-group-item hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #fff;
+        margin: 1em 0;
+        padding: 0;
+    }
+
+    li.list-group-item h3 {
+        font-weight: 200;
+        font-family: 'Roboto', sans-serif;
+        
+    }
+
+    li.list-group-item p {
+        /*color: #7FDBFF;*/
+        font-family: 'Roboto', sans-serif;
+        /*text-align: center;*/
+    }
+}

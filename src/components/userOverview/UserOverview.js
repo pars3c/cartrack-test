@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchUsers } from '../actions/userActions';
-import '../styles/styles.css';
+import { fetchUsers } from '../../actions/userActions';
+import './styles.css';
 
 function searchingForName(name, username, email, website, phone) {
     return function(x) {
@@ -39,12 +39,6 @@ class App extends Component {
     
 
     }
-    handleSubmit(event) {
-        console.log('props: ', this.props);
-        this.getUsers();
-        
-        event.preventDefault();
-    }
     
     getUsers() {
         
@@ -77,8 +71,7 @@ class App extends Component {
     }
 
     render() {
-        const users = this.props;
-        console.log('yay', users);
+        
         
         
         return (
@@ -119,11 +112,16 @@ class App extends Component {
                 </div>
                 <div className="filtered-results">
                         <ul>
+                        
                         {
-                            this.props.users.filter(searchingForName(this.state.name, this.state.username,
+                            this.props.users.users.filter(searchingForName(this.state.name, this.state.username,
                             this.state.email, this.state.website, this.state.phone)).slice(0, 5).map(user => {
                                 return (
-                                    <li key={user.id} className="list-group-item">
+                                    <li key={user.id} 
+                                        className="list-group-item"
+                                        
+                                        >
+                                        <a href={`/detailed-user/${user.id}`}>
                                         <div className="list-item">
                                             <h3>{user.username} </h3>
                                             <p>{user.name} </p>
@@ -134,6 +132,7 @@ class App extends Component {
                                         >
                                         
                                         </div>
+                                        </a>
                                     </li>
                                 )
                             })
@@ -147,10 +146,7 @@ class App extends Component {
 
 
 function mapStateToProps(state) {
-    console.log('users: ', state.users)
-    return {
-        users: state.users.users,
-    };
+    return state;
 }
 
 export default connect(mapStateToProps, { fetchUsers })(App);

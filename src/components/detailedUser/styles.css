@@ -1,0 +1,154 @@
+@media (min-width:320px) {
+    body {
+        background: #28c16b;
+    }
+
+    h1 {
+        font-family: 'Roboto', sans-serif;
+        text-align: left;
+        padding: 30px;
+        color: #ffffff;
+        font-weight: 100;
+    }
+
+    
+
+    .contact-info table {
+        padding: 30px;
+        margin-top: 10px;
+        
+    }
+    .contact-info table, th, td {
+        
+        font-family: 'Roboto', sans-serif;
+        font-weight: 200;
+        color: #fff;
+        border: 1px solid #fff;
+        border-collapse: collapse;
+        text-align: center;
+        margin: auto;
+        margin-bottom: 60px;
+      }
+
+    .contact-info table, th, td, a {
+    text-decoration: none;
+    
+    
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    color: #fff;
+    text-align: center;
+
+    }
+    .contact-info th, td {
+        padding: 15px;
+      }
+    
+    .extra-contact-info {
+    font-family: 'Roboto', sans-serif;
+    /* text-align: left; */
+    color: #ffffff;
+    font-weight: 100;
+    text-align: center;
+    }
+
+    .extra-contact-info h2{
+        padding: 5px;
+        margin: auto;
+        margin-bottom: 10px;
+        
+    }
+    .extra-contact-info label{
+        padding: 5px;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+
+    .extra-contact-info h3{
+        padding: 5px;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+    
+}
+
+
+
+
+@media (min-width:801px) {
+    body {
+        background: #28c16b;
+    }
+
+    h1 {
+        font-family: 'Roboto', sans-serif;
+        text-align: left;
+        padding: 30px;
+        color: #ffffff;
+        font-weight: 100;
+    }
+
+    .left-col {
+        width: 50%;
+        float: left;
+    }
+    .right-col {
+        width: 50%;
+        float: right;
+    }
+
+    .contact-info table {
+        padding: 30px;
+        margin-top: 10px;
+    }
+    .contact-info table, th, td {
+        margin-bottom: 20px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 200;
+        color: #fff;
+        border: 1px solid #fff;
+        border-collapse: collapse;
+        text-align: center;
+      }
+
+    .contact-info table, th, td, a {
+    text-decoration: none;
+    outline-color: #fff;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    color: #fff;
+    text-align: center;
+
+    }
+    .contact-info th, td {
+        padding: 15px;
+      }
+    
+    .extra-contact-info {
+    font-family: 'Roboto', sans-serif;
+    /* text-align: left; */
+    color: #ffffff;
+    font-weight: 100;
+    text-align: center;
+    }
+
+    .extra-contact-info h2{
+        padding: 5px;
+        margin: auto;
+        margin-bottom: 10px;
+        
+    }
+    .extra-contact-info label{
+        padding: 5px;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+
+    .extra-contact-info h3{
+        padding: 5px;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+    
+}

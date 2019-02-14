@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchUsers } from '../../actions/userActions';
+import UserFilter from './UserFilter';
 import './styles.css';
 
+
+// Filtering function
 function searchingForName(name, username, email, website, phone) {
     return function(x) {
         return ((x.name.toLowerCase().includes(name.toLowerCase()) || !name) && 
@@ -17,11 +20,10 @@ function searchingForName(name, username, email, website, phone) {
 
 
 
-class App extends Component {
+class UserOverview extends Component {
 
     constructor(props) {
         super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
         this.getUsers = this.getUsers.bind(this);
         this.nameSearchHandler = this.nameSearchHandler.bind(this);
         this.usernameSearchHandler = this.usernameSearchHandler.bind(this);
@@ -36,20 +38,18 @@ class App extends Component {
             phone: '',
             website: '',
         };
-    
-
     }
-    
     getUsers() {
-        
         return this.props.fetchUsers();
-        
     }
     
+    // Fetch all users when all outputs are loaded
     componentDidMount() {
         this.getUsers();
     }
 
+
+    // Form Handlers
     nameSearchHandler(event) {
         this.setState({ name: event.target.value });
     }
@@ -78,10 +78,7 @@ class App extends Component {
             <div>
                 <h1>Search for users</h1>
                 <div className="filter-menu">
-                    <form>
-                    
-                        
-                            
+                    <form>                           
                             <label>
                                 Name:
                                 <input type="text" value={this.state.name} onChange={this.nameSearchHandler} placeholder="Name"/>
@@ -110,35 +107,9 @@ class App extends Component {
                         
                     </form>
                 </div>
-                <div className="filtered-results">
-                        <ul>
-                        
-                        {
-                            this.props.users.users.filter(searchingForName(this.state.name, this.state.username,
-                            this.state.email, this.state.website, this.state.phone)).slice(0, 5).map(user => {
-                                return (
-                                    <li key={user.id} 
-                                        className="list-group-item"
-                                        
-                                        >
-                                        <a href={`/detailed-user/${user.id}`}>
-                                        <div className="list-item">
-                                            <h3>{user.username} </h3>
-                                            <p>{user.name} </p>
-                                            <hr></hr>
-                                            
-                                        </div>
-                                        <div className="list-item right-button"
-                                        >
-                                        
-                                        </div>
-                                        </a>
-                                    </li>
-                                )
-                            })
-                        }
-                        </ul>
-                    </div>
+                <UserFilter filteredUsers={this.props.users.users.filter(searchingForName(this.state.name, this.state.username,
+                            this.state.email, this.state.website, this.state.phone))}/>
+                
             </div>
         )
     }
@@ -149,4 +120,4 @@ function mapStateToProps(state) {
     return state;
 }
 
-export default connect(mapStateToProps, { fetchUsers })(App);
+export default connect(mapStateToProps, { fetchUsers })(UserOverview);

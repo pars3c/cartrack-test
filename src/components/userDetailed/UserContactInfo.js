@@ -14,7 +14,7 @@ class UserContactInfo extends Component {
                         return (
                             
                             <div className="contact-info" key={user.id}>
-                            <Link to="/"><a href="/">About</a></Link>
+                            <Link to="/"><a href="/">Go Back</a></Link>
                                 <h1>Let's Get in Touch</h1>
                                 <div className="left-col">
                                     <table>

@@ -3,7 +3,7 @@ import React from 'react';
 // ReactDOM renderiza um elemento de React dentro do "container" fornecido.
 import ReactDOM from 'react-dom';
 import UserOverview from './components/userOverview/UserOverview';
-import UserDetailed from './components/detailedUser/UserDetailed';
+import UserDetailed from './components/userDetailed/UserDetailed';
 
 // { Provider } permite que todos os elementos dentro do mesmo "nested", tenham acesso à store.
 import { Provider } from 'react-redux';

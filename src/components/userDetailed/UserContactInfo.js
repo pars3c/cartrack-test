@@ -6,6 +6,20 @@ import { fetchUsers } from '../../actions/userActions';
 
 
 class UserContactInfo extends Component {
+    constructor(props) {
+        super(props);
+        this.getUsers = this.getUsers.bind(this);
+    }
+
+    
+    getUsers() {
+        return this.props.fetchUsers();
+        
+    }
+    
+    componentDidMount() {
+        this.getUsers();
+    }
     render() {
         return (
             <div>
